@@ -12,5 +12,5 @@ class Post extends Model
     //Явная привязка к таблице
     protected $table = 'posts';
     //Аналог fillable, просто отключает защиту на запись всех полей
-    protected $quarded = false;
+    protected $guarded = false;
 }

@@ -12,5 +12,5 @@ class PostTag extends Model
     //Явная привязка к таблице
     protected $table = 'post_tags';
     //Аналог fillable, просто отключает защиту на запись всех полей
-    protected $quarded = false;
+    protected $guarded = false;
 }

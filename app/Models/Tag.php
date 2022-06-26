@@ -12,5 +12,5 @@ class Tag extends Model
     //Явная привязка к таблице
     protected $table = 'tags';
     //Аналог fillable, просто отключает защиту на запись всех полей
-    protected $quarded = false;
+    protected $guarded = false;
 }
