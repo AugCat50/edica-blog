@@ -16,6 +16,5 @@ class UpdateController extends Controller
         $category->update($data);
 
         return view('admin.categories.show', compact('category'));
-        // return 'category';
     }
 }

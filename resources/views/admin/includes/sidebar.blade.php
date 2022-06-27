@@ -15,8 +15,16 @@
                     <a href="{{ route('admin.category.index') }}" class="nav-link">
                         <i class="nav-icon fas fa-th"></i>
                         <p>
-                            Categories
+                            Категории
                             <!-- <span class="right badge badge-danger">New</span> -->
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('admin.tag.index') }}" class="nav-link">
+                        <i class="nav-icon fa fa-tags"></i>
+                        <p>
+                            Тэги
                         </p>
                     </a>
                 </li>

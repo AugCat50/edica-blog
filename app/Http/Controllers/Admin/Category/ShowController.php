@@ -11,9 +11,6 @@ class ShowController extends Controller
     //Метод по умолчанию.
     public function __invoke(Category $category)
     {
-        // $categories = Category::all();
-
         return view('admin.categories.show', compact('category'));
-        // return 'category';
     }
 }

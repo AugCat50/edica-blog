@@ -14,6 +14,5 @@ class IndexController extends Controller
         $categories = Category::all();
 
         return view('admin.categories.index', compact('categories'));
-        // return 'category';
     }
 }
