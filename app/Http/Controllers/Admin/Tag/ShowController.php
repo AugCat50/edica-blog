@@ -8,7 +8,7 @@ use App\Http\Controllers\Controller;
 class ShowController extends Controller
 {
     //Метод по умолчанию.
-    public function __invoke(Tag $category)
+    public function __invoke(Tag $tag)
     {
         return view('admin.tags.show', compact('tag'));
     }
