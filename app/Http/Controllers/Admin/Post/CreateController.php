@@ -6,7 +6,7 @@ use App\Models\Category;
 use App\Http\Controllers\Controller;
 use App\Models\Tag;
 
-class CreateController extends Controller
+class CreateController extends BaseController
 {
     //Метод по умолчанию.
     public function __invoke()
