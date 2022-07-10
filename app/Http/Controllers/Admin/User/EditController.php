@@ -11,6 +11,8 @@ class EditController extends Controller
     //Метод по умолчанию.
     public function __invoke(User $user)
     {
-        return view('admin.categories.edit', compact('user'));
+        $roles = User::getRoles();
+
+        return view('admin.user.edit', compact('roles', 'user'));
     }
 }

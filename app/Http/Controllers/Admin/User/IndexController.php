@@ -11,8 +11,8 @@ class IndexController extends Controller
     //Метод по умолчанию.
     public function __invoke()
     {
-        $categories = User::all();
+        $users = User::all();
 
-        return view('admin.categories.index', compact('categories'));
+        return view('admin.user.index', compact('users'));
     }
 }

@@ -27,4 +27,15 @@ class UpdateRequest extends FormRequest
             'title' => 'required|string'
         ];
     }
+
+    /**
+     * Сообщения, возвращаемые на события ошибок валидации
+     */
+    public function messages()
+    {
+        return [
+            'title.required'     => 'Поле должно быть заполнено',
+            'title.string'       => 'Имя должно быть строкой'
+        ];
+    }
 }

@@ -29,10 +29,12 @@
                 <div class="col-6">
                     <form action="{{ route('admin.category.store') }}" method="post">
                         @csrf
-                        <input class="form-control mb-3" name="title" type="text" placeholder="Имя категории">
+                        
+                        <input class="form-control mb-3" name="title" type="text" placeholder="Имя категории" value="{{ old('title') }}">
                         @error('title')
-                        <div class="text-danger"><p>Поле должно быть заполнено</p></div>
+                        <div class="text-danger"><p>{{ $message }}</p></div>
                         @enderror
+
                         <input type="submit" class="btn btn-block btn-success col-2" value="Сохранить">
                     </form>
                 </div>

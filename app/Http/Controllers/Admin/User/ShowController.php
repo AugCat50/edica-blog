@@ -11,6 +11,6 @@ class ShowController extends Controller
     //Метод по умолчанию.
     public function __invoke(User $user)
     {
-        return view('admin.categories.show', compact('user'));
+        return view('admin.user.show', compact('user'));
     }
 }

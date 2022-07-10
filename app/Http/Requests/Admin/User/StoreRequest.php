@@ -24,7 +24,29 @@ class StoreRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'required|string'
+            'name'     => 'required|string',
+            'email'    => 'required|string|email|unique:users',
+            'password' => 'required|string',
+            'role'     => 'required|integer'
+        ];
+    }
+
+    /**
+     * Сообщения, возвращаемые на события ошибок валидации
+     */
+    public function messages()
+    {
+        return [
+            'name.required'     => 'Поле должно быть заполнено',
+            'name.string'       => 'Имя должно быть строкой',
+            'email.required'    => 'Поле должно быть заполнено',
+            'email.string'      => 'Почта должна быть строкой',
+            'email.email'       => 'Почта должна соответствовать формату email@some.domain',
+            'email.unique'      => 'Пользователь с такой почтой уже существует',
+            'password.required' => 'Поле должно быть заполнено',
+            'password.string'   => 'Пароль должен быть строкой',
+            'role.required'     => 'Необходимо назначить роль',
+            'role.integer'      => 'Роль должна содержать целое число. Обратитесь к администратору сайта.'
         ];
     }
 }

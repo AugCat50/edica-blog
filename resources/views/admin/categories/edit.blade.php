@@ -30,9 +30,9 @@
                     <form action="{{ route('admin.category.update', $category->id) }}" method="post">
                         @csrf
                         @method('PATCH')
-                        <input class="form-control mb-3" name="title" type="text" placeholder="Название категории" value="{{ $category->title }}">
+                        <input class="form-control mb-3" name="title" type="text" placeholder="Название категории" value="{{ old('title', $category->title) }}">
                         @error('title')
-                        <div class="text-danger"><p>Поле должно быть заполнено</p></div>
+                        <div class="text-danger"><p>{{ $message }}</p></div>
                         @enderror
                         <input type="submit" class="btn btn-block btn-success col-2" value="Обновить">
                     </form>

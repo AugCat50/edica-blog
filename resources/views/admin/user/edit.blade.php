@@ -30,10 +30,33 @@
                     <form action="{{ route('admin.user.update', $user->id) }}" method="post">
                         @csrf
                         @method('PATCH')
-                        <input class="form-control mb-3" name="name" type="text" placeholder="Имя пользователя" value="{{ $user->name }}">
+                        <input class="form-control mb-3" name="name" type="text" placeholder="Имя пользователя" value="{{ old('name', $user->name) }}">
                         @error('name')
-                        <div class="text-danger"><p>Поле должно быть заполнено</p></div>
+                        <div class="text-danger"><p>{{ $message }}</p></div>
                         @enderror
+
+                        <input class="form-control mb-3" name="email" type="text" placeholder="E-mail" value="{{ old('email', $user->email) }}">
+                        @error('email')
+                        <div class="text-danger"><p>{{ $message }}</p></div>
+                        @enderror
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Роль</label>
+                                <select name="role" class="select2" multiple="multiple" data-placeholder="Select a State" style="width: 100%;">
+                                    <!-- Разбитие массива $rols на ключ => значение -->
+                                    @foreach ($roles as $id => $role)
+                                        <option value="{{ $id }}" {{ $id == old('role', $user->role) ? 'selected' : '' }}>
+                                            {{ $role }}
+                                        </option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+                        @error('role')
+                        <div class="text-danger"><p>{{ $message }}</p></div>
+                        @enderror
+
                         <input type="submit" class="btn btn-block btn-success col-2" value="Обновить">
                     </form>
                 </div>
