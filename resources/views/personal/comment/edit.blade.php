@@ -1,4 +1,4 @@
-@extends('admin.layouts.main')
+@extends('personal.layouts.main')
 
 @section('content')
 
@@ -8,16 +8,14 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Редактирование тэга</h1>
+                    <h1 class="m-0">Комментарии</h1>
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="{{ route('admin.main.index') }}">Главная</a></li>
-                        <li class="breadcrumb-item"><a href="{{ route('admin.tag.index') }}">Тэги</a></li>
-                        <li class="breadcrumb-item active">Редактирование тега</li>
+                        <!-- <li class="breadcrumb-item"><a href="#">Home</a></li> -->
+                        <li class="breadcrumb-item active">Комментарии</li>
                     </ol>
-                </div>
-                <!-- /.col -->
+                </div><!-- /.col -->
             </div><!-- /.row -->
         </div><!-- /.container-fluid -->
     </div>
@@ -26,15 +24,17 @@
     <!-- Main content -->
     <section class="content">
         <div class="container-fluid">
-            <!-- Small boxes (Stat box) -->
             <div class="row">
                 <div class="col-6">
-                    <form action="{{ route('admin.tag.update', $tag->id) }}" method="post">
+                    <form action="{{ route('personal.comment.update', $comment->id) }}" method="post">
                         @csrf
                         @method('PATCH')
-                        <input class="form-control mb-3" name="title" type="text" placeholder="Название категории" value="{{ $tag->title }}">
+                        <textarea name="message" cols="60" rows="15" class="form-control">{{ $comment->message }}</textarea>
+                        
                         @error('title')
-                        <div class="text-danger"><p>Поле должно быть заполнено</p></div>
+                        <div class="text-danger">
+                            <p>{{ $message }}</p>
+                        </div>
                         @enderror
                         <input type="submit" class="btn btn-block btn-success col-2" value="Обновить">
                     </form>
