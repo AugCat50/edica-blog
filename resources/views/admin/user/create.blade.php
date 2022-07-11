@@ -39,10 +39,8 @@
                         <div class="text-danger"><p>{{ $message }}</p></div>
                         @enderror
 
-                        <input class="form-control mb-3" name="password" type="text" placeholder="Пароль">
-                        @error('password')
-                        <div class="text-danger"><p>{{ $message }}</p></div>
-                        @enderror
+                        <!-- <input class="form-control mb-3" name="password" type="text" placeholder="Пароль"> -->
+
 
                         <div class="col-md-6">
                             <div class="form-group">
