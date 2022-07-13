@@ -2,14 +2,21 @@
 
 namespace App\Http\Controllers\Main;
 
-use App\Http\Controllers\Controller;
+use App\Models\Post;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class IndexController extends Controller
 {
     //Метод по умолчанию.
     public function __invoke()
     {
-        return view('main.index');
+        $posts       = Post::paginate(6);
+        $randomPosts = Post::get()->random(4);
+
+        //Считает количество лайков у поста в таблице отношения, сортирует по убыванию, получает коллекцию, берёт первые 4 объекта из коллекции
+        $likedPosts  = Post::withCount('likedUsers')->orderBy('liked_users_count', 'DESC')->get()->take(4);
+
+        return view('main.index', compact('posts', 'randomPosts', 'likedPosts'));
     }
 }

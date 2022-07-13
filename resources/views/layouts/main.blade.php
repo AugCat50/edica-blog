@@ -26,9 +26,9 @@
                 <div class="collapse navbar-collapse" id="edicaMainNav">
                     <ul class="navbar-nav mx-auto mt-2 mt-lg-0">
                         <li class="nav-item active">
-                            <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                            <a class="nav-link" href="{{ route('main.index') }}">Блог <span class="sr-only">(current)</span></a>
                         </li>
-                        <li class="nav-item">
+                        <!-- <li class="nav-item">
                             <a class="nav-link" href="about.html">About</a>
                         </li>
                         <li class="nav-item dropdown">
@@ -47,16 +47,16 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="contact.html">Contact</a>
-                        </li>
+                        </li> -->
                     </ul>
-                    <ul class="navbar-nav mt-2 mt-lg-0">
+                    <!-- <ul class="navbar-nav mt-2 mt-lg-0">
                         <li class="nav-item">
                             <a class="nav-link" href="#"><span class="flag-icon flag-icon-squared rounded-circle flag-icon-gb"></span> Eng</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Download</a>
                         </li>
-                    </ul>
+                    </ul> -->
                 </div>
             </nav>
         </div>

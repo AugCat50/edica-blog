@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::group(['namespace' => 'App\Http\Controllers\Main'], function () {
-    Route::get('/', 'IndexController');
+    Route::get('/', 'IndexController')->name('main.index');
 });
 
 Route::group(['namespace' => 'App\Http\Controllers\Admin', 'prefix' => 'admin', 'middleware' => ['auth', 'admin']], function () {
@@ -75,10 +75,10 @@ Route::group(['namespace' => 'App\Http\Controllers\Personal', 'prefix' => 'perso
     });
 
     Route::group(['namespace' => 'Comment'], function () {
-        Route::get   ('/comment', 'IndexController')      ->name('personal.comment.index');
-        Route::get   ('/{comment}/edit', 'EditController')->name('personal.comment.edit');
-        Route::patch ('/{comment}', 'UpdateController')   ->name('personal.comment.update');
-        Route::delete('/{comment}/delete', 'DeleteController')   ->name('personal.comment.delete');
+        Route::get   ('/comment', 'IndexController')           ->name('personal.comment.index');
+        Route::get   ('/{comment}/edit', 'EditController')     ->name('personal.comment.edit');
+        Route::patch ('/{comment}', 'UpdateController')        ->name('personal.comment.update');
+        Route::delete('/{comment}/delete', 'DeleteController') ->name('personal.comment.delete');
     });
 });
 
