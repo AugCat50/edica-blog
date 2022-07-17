@@ -48,6 +48,30 @@
             </section>
             <div class="row">
                 <div class="col-lg-9 mx-auto">
+                    @auth()
+                    <section>
+                        <form action='{{ route("post.like.store", $post->id) }}' method='post'>
+                            @csrf
+                            <button type='submit' class='border-0 bg-transparent'>
+                            @if(auth()->user()->likedPosts->contains($post->id))
+                            <i class='fas fa-heart'></i>
+                            @else
+                            <i class='far fa-heart'></i>
+                            @endif
+                            </button>
+                            <span>{{ $post->liked_users_count }}</span>
+                        </form>
+                    </section>
+                    @endauth
+
+                    @guest
+                    <section>
+                        <i class='far fa-heart'></i>
+                        <span>{{ $post->liked_users_count }}</span>
+                    </section>
+                    @endguest
+
+                    @if($relatedPosts->count() > 0)
                     <section class="related-posts">
                         <h2 class="section-title mb-4" data-aos="fade-up">Схожие посты</h2>
                         <div class="row">
@@ -60,19 +84,9 @@
                                 </a>
                             </div>
                             @endforeach
-
-                            <!-- <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
-                                <img src="assets/images/blog_post_related_2.png" alt="related post" class="post-thumbnail">
-                                <p class="post-category">Blog post</p>
-                                <h5 class="post-title">Front becomes an official Instagram</h5>
-                            </div>
-                            <div class="col-md-4" data-aos="fade-left" data-aos-delay="100">
-                                <img src="assets/images/blog_post_related_3.png" alt="related post" class="post-thumbnail">
-                                <p class="post-category">Blog post</p>
-                                <h5 class="post-title">Front becomes an official Instagram</h5>
-                            </div> -->
                         </div>
                     </section>
+                    @endif
 
                     <section class='comment-list  mb-5' data-aos='fade-up'>
                         <h2 class='section-title mb-5'>Комментарии ({{ $post->comments->count() }})</h2>

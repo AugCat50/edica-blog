@@ -15,4 +15,9 @@ class Category extends Model
     protected $table = 'categories';
     //Аналог fillable, просто отключает защиту на запись всех полей
     protected $guarded = false;
+
+    public function posts()
+    {
+        return $this->hasMany(Post::class, 'category_id', 'id');
+    }
 }

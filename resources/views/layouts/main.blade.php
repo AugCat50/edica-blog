@@ -28,6 +28,11 @@
                         <li class="nav-item active">
                             <a class="nav-link" href="{{ route('main.index') }}">Блог <span class="sr-only">(current)</span></a>
                         </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('category.index') }}">Категории</a>
+                        </li>
+
                         <li class="nav-item">
                             @auth()
                                 @if(auth()->user()->role === 0)
