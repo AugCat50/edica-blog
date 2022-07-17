@@ -16,7 +16,8 @@ class Post extends Model
     //Аналог fillable, просто отключает защиту на запись всех полей
     protected $guarded = false;
     //Счётчик для отношения, которое нам надо посчитать
-    protected $withCount = ['likedUsers']; 
+    protected $withCount = ['likedUsers'];
+    protected $with = ['category'];
 
     public function tags()
     {
