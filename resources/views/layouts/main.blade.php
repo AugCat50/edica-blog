@@ -28,9 +28,19 @@
                         <li class="nav-item active">
                             <a class="nav-link" href="{{ route('main.index') }}">Блог <span class="sr-only">(current)</span></a>
                         </li>
-                        <!-- <li class="nav-item">
-                            <a class="nav-link" href="about.html">About</a>
+                        <li class="nav-item">
+                            @auth()
+                                @if(auth()->user()->role === 0)
+                                    <a class="nav-link" href="{{ route('admin.main.index') }}">Личный кабирнет (admin)</a>
+                                @else
+                                    <a class="nav-link" href="{{ route('personal.main.index') }}">Личный кабирнет</a>
+                                @endif
+                            @endauth
+                            @guest
+                            <a class="nav-link" href="{{ route('personal.main.index') }}">Войти</a>
+                            @endguest
                         </li>
+                        <!-- 
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="blogDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Blog</a>
                             <div class="dropdown-menu" aria-labelledby="blogDropdown">
@@ -64,7 +74,7 @@
 
     @yield('content')
 
-    <section class="edica-footer-banner-section">
+    <!-- <section class="edica-footer-banner-section">
         <div class="container">
             <div class="footer-banner" data-aos="fade-up">
                 <h1 class="banner-title">Download it now.</h1>
@@ -75,7 +85,7 @@
                 <p class="banner-text">Add some helper text here to explain the finer details of your <br> product or service.</p>
             </div>
         </div>
-    </section>
+    </section> -->
     <footer class="edica-footer" data-aos="fade-up">
         <div class="container">
             <div class="row footer-widget-area">
